@@ -1,5 +1,9 @@
-<app-new-transference
-  (onTranfer)="transfer($event)"
-  ></app-new-transference>
+<header>
+  <a routerLink="statement">Extrato</a>
+  <a routerLink="new-transfer" routerLinkActive="ativo">Nova Transferência</a>
+</header>
 
-<app-statement></app-statement>
+<main>
+  <router-outlet></router-outlet>
+</main>
+

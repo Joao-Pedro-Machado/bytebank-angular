@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Transfer } from '../models/transfer.model';
+import { TransferenceService } from '../services/transference.service';
 
 @Component({
     selector: 'app-new-transference',
@@ -12,18 +15,23 @@ export class NewTranferenceComponent {
   @Input() value: number;
   @Input() destiny: number;
 
-  @Output() onTranfer = new EventEmitter<any>();
+  constructor(private service: TransferenceService, private router: Router) {}
 
-  transfer(){
-    this.onTranfer.emit({
+  transfer() {
+    const newTransfer: Transfer = {
       value: this.value,
       destiny: this.destiny
-    })
+    }
 
-    this.clearFields()
+    this.service.addNewTransfer(newTransfer).subscribe(response => {
+      console.log(response)
+      this.clearFields()
+      this.router.navigateByUrl('statement')
+    },
+    error => console.log(error))
   }
 
-  clearFields(){
+  clearFields() {
     this.value = null;
     this.destiny = null;
   }

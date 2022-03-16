@@ -8,6 +8,8 @@ import localePt from '@angular/common/locales/pt'
 import { AppComponent } from './app.component';
 import { NewTranferenceComponent } from './new-transference/new-transference.component';
 import { StatementComponent } from './statement/statement.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 registerLocaleData(localePt, 'pt')
 @NgModule({
@@ -18,7 +20,9 @@ registerLocaleData(localePt, 'pt')
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     {
