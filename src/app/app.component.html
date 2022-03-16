@@ -1,4 +1,3 @@
 <app-new-transference (onTranfer)="transfer($event)" ></app-new-transference>
 
-<p>Valor: {{ transference?.value }}</p>
-<p>Destino: {{ transference?.destiny }}</p>
+<app-statement [transferences]="transferences"></app-statement>

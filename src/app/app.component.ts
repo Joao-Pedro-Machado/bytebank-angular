@@ -7,11 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-  transference: any;
+  transferences: any[] = [];
 
 
   transfer($event) {
     console.log($event)
-    this.transference = $event
+    const transfer = {...$event, data: new Date()}
+    this.transferences.push(transfer)
   }
 }
